@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Install aaPanel on Termux - Guide</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Install aaPanel on Termux</h1>
+        <nav>
+            <ul>
+                <li><a href="#prerequisites">Prerequisites</a></li>
+                <li><a href="#installation">Installation</a></li>
+                <li><a href="#configurations">Advanced Configurations</a></li>
+                <li><a href="#troubleshooting">Troubleshooting</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="prerequisites">
+        <h2>Prerequisites</h2>
+        <p>Before installing aaPanel, make sure you have the following installed:</p>
+        <ul>
+            <li><a href="https://github.com/termux/termux-packages">Termux</a> (for Android)</li>
+            <li>Ubuntu Root Filesystem (choose your desired version below):</li>
+            <ul>
+                <li><a href="https://partner-images.canonical.com/core/focal/">Ubuntu Focal</a></li>
+                <li><a href="https://partner-images.canonical.com/core/jammy/">Ubuntu Jammy</a></li>
+                <li><a href="https://partner-images.canonical.com/core/bionic/">Ubuntu Bionic</a></li>
+                <li><a href="https://partner-images.canonical.com/core/xenial/">Ubuntu Xenial</a></li>
+            </ul>
+        </ul>
+    </section>
+
+    <section id="installation">
+        <h2>Installation</h2>
+        <h3>Step 1: Install Termux and PRoot</h3>
+        <pre><code>
+pkg update && pkg upgrade
+pkg install proot
+        </code></pre>
+
+        <h3>Step 2: Download Ubuntu Root Filesystem</h3>
+        <p>Choose your desired version and download the root filesystem:</p>
+        <pre><code>
+wget https://partner-images.canonical.com/core/focal/current/ubuntu-focal-core-cloudimg-arm64-root.tar.xz
+        </code></pre>
+
+        <h3>Step 3: Extract and Set Up the Ubuntu Environment</h3>
+        <pre><code>
+mkdir ~/ubuntu-fs
+tar -xf ubuntu-focal-core-cloudimg-arm64-root.tar.xz -C ~/ubuntu-fs
+        </code></pre>
+
+        <h3>Step 4: Run Ubuntu via PRoot</h3>
+        <pre><code>
+proot -0 -w ~ -b /proc -b /sys -b /dev ~/ubuntu-fs/bin/bash
+        </code></pre>
+
+        <h3>Step 5: Install aaPanel</h3>
+        <pre><code>
+bash <(curl -s http://www.aapanel.com/script/install-ubuntu.sh)
+        </code></pre>
+    </section>
+
+    <section id="configurations">
+        <h2>Advanced Configurations</h2>
+        <p>After installation, you can configure the following services:</p>
+        <ul>
+            <li>Web Server (Nginx/Apache)</li>
+            <li>Database Server (MySQL/PostgreSQL)</li>
+            <li>SSL Configuration</li>
+        </ul>
+    </section>
+
+    <section id="troubleshooting">
+        <h2>Troubleshooting</h2>
+        <p>If you encounter issues, try the following solutions:</p>
+        <ul>
+            <li>Ensure your Termux installation is up-to-date: <code>pkg update && pkg upgrade</code></li>
+            <li>If `proot` is not working, try reinstalling it: <code>pkg install proot</code></li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>For more help, visit the <a href="https://github.com/Rekt-Developer/localhost-termux-root-webpanel">GitHub Repository</a>.</p>
+    </footer>
+</body>
+</html>
