@@ -1,127 +1,230 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Install aaPanel on Termux easily using the step-by-step guide. Learn how to set up a web hosting panel on your Android device and optimize your server environment.">
-    <meta name="keywords" content="aaPanel, Termux, Ubuntu, setup, server, web hosting, Linux, aapanel, install guide, control panel">
-    <meta name="author" content="Rekt Developers">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Install aaPanel on Termux | Step-by-Step Guide">
-    <meta property="og:description" content="Step-by-step guide to install aaPanel on your Termux environment. Host and manage websites with ease on your Android device.">
-    <meta property="og:image" content="https://example.com/path/to/thumbnail.jpg">
-    <meta property="og:url" content="https://github.com/Rekt-Developer/localhost-termux-root-webpanel">
-    <meta property="og:type" content="website">
+    
+    <!-- Primary Meta Tags -->
+    <title>aaPanel Termux Installation Guide | Ultimate Server Management</title>
+    <meta name="description" content="Master the complete aaPanel installation on Termux with our comprehensive, step-by-step guide. Transform your Android device into a powerful web hosting platform.">
+    <meta name="keywords" content="aaPanel, Termux, Ubuntu, web hosting, Linux, server management, Android development, web panel, control panel installation">
+    
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Ultimate aaPanel Termux Installation Guide">
+    <meta property="og:description" content="Comprehensive tutorial to install aaPanel on Termux: Turn your Android device into a professional web hosting environment.">
+    <meta property="og:url" content="https://rektdevelopers.github.io/termux-aapanel-guide">
+    <meta property="og:image" content="https://rektdevelopers.github.io/images/termux-aapanel-banner.jpg">
+    <meta property="article:author" content="Rekt Developers">
+    <meta property="article:section" content="Web Hosting Tutorials">
+    
+    <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Install aaPanel on Termux | Step-by-Step Guide">
-    <meta name="twitter:description" content="Learn how to install aaPanel on your Android device via Termux. Full guide with troubleshooting steps.">
-    <meta name="twitter:image" content="https://example.com/path/to/thumbnail.jpg">
-    <meta name="twitter:site" content="@RektDevelopers">
-    <title>Install aaPanel on Termux - Step-by-Step Guide</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="https://example.com/favicon.ico" type="image/x-icon">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXX-X"></script>
+    <meta name="twitter:title" content="Master aaPanel on Termux">
+    <meta name="twitter:description" content="Transform your Android into a powerful web hosting platform with our ultimate aaPanel Termux guide.">
+    <meta name="twitter:image" content="https://rektdevelopers.github.io/images/termux-aapanel-twitter-card.jpg">
+    <meta name="twitter:creator" content="@RektDevelopers">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://rektdevelopers.github.io/termux-aapanel-guide">
+    
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="/css/styles.css" as="style">
+    <link rel="stylesheet" href="/css/styles.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "aaPanel Installation on Termux",
+        "description": "Comprehensive guide to installing aaPanel on Termux for web hosting",
+        "totalTime": "PT30M",
+        "estimatedCost": {
+            "@type": "MonetaryCost",
+            "currency": "USD",
+            "value": "0"
+        },
+        "step": [
+            {
+                "@type": "HowToStep",
+                "name": "Install Termux and PRoot",
+                "text": "Update Termux packages and install PRoot environment"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Download Ubuntu Root Filesystem",
+                "text": "Download the appropriate Ubuntu core filesystem for your device"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Setup Ubuntu Environment",
+                "text": "Extract and configure the Ubuntu root filesystem"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Install aaPanel",
+                "text": "Run the official aaPanel installation script"
+            }
+        ]
+    }
+    </script>
+    
+    <!-- Performance Optimization Hints -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+</head>
+<body>
+    <header role="banner" class="site-header">
+        <div class="container">
+            <h1>🚀 aaPanel Termux Installation Guide</h1>
+            <p class="lead">Transform Your Android into a Professional Web Hosting Environment</p>
+            
+            <nav role="navigation" aria-label="Table of Contents">
+                <ul class="nav-list">
+                    <li><a href="#prerequisites" class="nav-link">Prerequisites</a></li>
+                    <li><a href="#installation" class="nav-link">Installation Steps</a></li>
+                    <li><a href="#configurations" class="nav-link">Advanced Setup</a></li>
+                    <li><a href="#troubleshooting" class="nav-link">Troubleshooting</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main role="main">
+        <section id="prerequisites" class="section">
+            <div class="container">
+                <h2>🔍 Prerequisites</h2>
+                <div class="content-grid">
+                    <div class="content-item">
+                        <h3>Required Tools</h3>
+                        <ul>
+                            <li>Termux App (Latest Version)</li>
+                            <li>Stable Internet Connection</li>
+                            <li>Android Device with ARM64 Architecture</li>
+                        </ul>
+                    </div>
+                    <div class="content-item">
+                        <h3>Ubuntu Versions</h3>
+                        <ul>
+                            <li>Ubuntu Focal (20.04 LTS) ✅ Recommended</li>
+                            <li>Ubuntu Jammy (22.04 LTS)</li>
+                            <li>Ubuntu Bionic (18.04 LTS)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="installation" class="section">
+            <div class="container">
+                <h2>💻 Installation Process</h2>
+                <div class="code-blocks">
+                    <div class="code-block">
+                        <h3>Step 1: Update Termux</h3>
+                        <pre><code>pkg update && pkg upgrade -y</code></pre>
+                    </div>
+                    
+                    <div class="code-block">
+                        <h3>Step 2: Install Dependencies</h3>
+                        <pre><code>pkg install proot wget tar -y</code></pre>
+                    </div>
+                    
+                    <div class="code-block">
+                        <h3>Step 3: Download Ubuntu</h3>
+                        <pre><code>wget https://partner-images.canonical.com/core/focal/current/ubuntu-focal-core-cloudimg-arm64-root.tar.xz</code></pre>
+                    </div>
+                    
+                    <div class="code-block">
+                        <h3>Step 4: Extract Filesystem</h3>
+                        <pre><code>mkdir -p ~/ubuntu-fs
+tar -xf ubuntu-focal-core-cloudimg-arm64-root.tar.xz -C ~/ubuntu-fs</code></pre>
+                    </div>
+                    
+                    <div class="code-block">
+                        <h3>Step 5: Launch Ubuntu</h3>
+                        <pre><code>proot -0 -w ~ -b /proc -b /sys -b /dev ~/ubuntu-fs/bin/bash</code></pre>
+                    </div>
+                    
+                    <div class="code-block">
+                        <h3>Step 6: Install aaPanel</h3>
+                        <pre><code>bash <(curl -s http://www.aapanel.com/script/install-ubuntu.sh)</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="configurations" class="section">
+            <div class="container">
+                <h2>⚙️ Post-Installation Configurations</h2>
+                <div class="configuration-grid">
+                    <div class="config-item">
+                        <h3>Web Server</h3>
+                        <p>Configure Nginx or Apache with optimal performance settings</p>
+                    </div>
+                    <div class="config-item">
+                        <h3>Database Management</h3>
+                        <p>Set up MySQL or PostgreSQL with secure credentials</p>
+                    </div>
+                    <div class="config-item">
+                        <h3>SSL Configuration</h3>
+                        <p>Implement free SSL certificates using Let's Encrypt</p>
+                    </div>
+                    <div class="config-item">
+                        <h3>Security Hardening</h3>
+                        <p>Enable firewall and implement intrusion prevention</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="troubleshooting" class="section">
+            <div class="container">
+                <h2>🛠️ Troubleshooting</h2>
+                <div class="troubleshooting-list">
+                    <details>
+                        <summary>Common Installation Issues</summary>
+                        <ul>
+                            <li>Verify Termux is updated</li>
+                            <li>Check internet connectivity</li>
+                            <li>Ensure sufficient storage space</li>
+                            <li>Verify ARM64 compatibility</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>Performance Optimization</summary>
+                        <ul>
+                            <li>Allocate adequate RAM</li>
+                            <li>Use lightweight web servers</li>
+                            <li>Implement caching mechanisms</li>
+                        </ul>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo" class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>🤝 Community Support: <a href="https://t.me/RektDevelopers">Telegram Group</a></p>
+                <p>📦 Project Repository: <a href="https://github.com/Rekt-Developer/localhost-termux-root-webpanel">GitHub</a></p>
+                <p>©2024 Rekt Developers. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Performance & Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'UA-XXXXXX-X');
+        gtag('config', 'G-XXXXXXXXXX');
     </script>
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "url": "https://github.com/Rekt-Developer/localhost-termux-root-webpanel",
-            "name": "Install aaPanel on Termux",
-            "description": "Step-by-step guide for installing aaPanel on Termux to manage websites and server environments.",
-            "publisher": {
-                "@type": "Organization",
-                "name": "Rekt Developers",
-                "url": "https://t.me/RektDevelopers"
-            }
-        }
-    </script>
-</head>
-<body>
-    <header>
-        <h1>Install aaPanel on Termux</h1>
-        <p>Follow this detailed guide to easily install and set up aaPanel on your Termux environment for web hosting and management.</p>
-        <nav>
-            <ul>
-                <li><a href="#prerequisites">Prerequisites</a></li>
-                <li><a href="#installation">Installation</a></li>
-                <li><a href="#configurations">Advanced Configurations</a></li>
-                <li><a href="#troubleshooting">Troubleshooting</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section id="prerequisites">
-        <h2>Prerequisites</h2>
-        <p>Make sure you have the following installed before starting the installation:</p>
-        <ul>
-            <li><a href="https://github.com/termux/termux-packages">Termux</a> on your Android device</li>
-            <li>Ubuntu Root Filesystem (choose your desired version below):</li>
-            <ul>
-                <li><a href="https://partner-images.canonical.com/core/focal/">Ubuntu Focal</a></li>
-                <li><a href="https://partner-images.canonical.com/core/jammy/">Ubuntu Jammy</a></li>
-                <li><a href="https://partner-images.canonical.com/core/bionic/">Ubuntu Bionic</a></li>
-            </ul>
-        </ul>
-    </section>
-
-    <section id="installation">
-        <h2>Installation</h2>
-        <h3>Step 1: Install Termux and PRoot</h3>
-        <pre><code>
-pkg update && pkg upgrade
-pkg install proot
-        </code></pre>
-
-        <h3>Step 2: Download Ubuntu Root Filesystem</h3>
-        <pre><code>
-wget https://partner-images.canonical.com/core/focal/current/ubuntu-focal-core-cloudimg-arm64-root.tar.xz
-        </code></pre>
-
-        <h3>Step 3: Extract and Set Up the Ubuntu Environment</h3>
-        <pre><code>
-mkdir ~/ubuntu-fs
-tar -xf ubuntu-focal-core-cloudimg-arm64-root.tar.xz -C ~/ubuntu-fs
-        </code></pre>
-
-        <h3>Step 4: Run Ubuntu via PRoot</h3>
-        <pre><code>
-proot -0 -w ~ -b /proc -b /sys -b /dev ~/ubuntu-fs/bin/bash
-        </code></pre>
-
-        <h3>Step 5: Install aaPanel</h3>
-        <pre><code>
-bash <(curl -s http://www.aapanel.com/script/install-ubuntu.sh)
-        </code></pre>
-    </section>
-
-    <section id="configurations">
-        <h2>Advanced Configurations</h2>
-        <p>After installation, configure the following services:</p>
-        <ul>
-            <li>Web Server (Nginx/Apache)</li>
-            <li>Database Server (MySQL/PostgreSQL)</li>
-            <li>SSL Configuration</li>
-        </ul>
-    </section>
-
-    <section id="troubleshooting">
-        <h2>Troubleshooting</h2>
-        <p>If you face any issues, try these solutions:</p>
-        <ul>
-            <li>Ensure Termux is up-to-date: <code>pkg update && pkg upgrade</code></li>
-            <li>Reinstall PRoot if necessary: <code>pkg install proot</code></li>
-        </ul>
-    </section>
-
-    <footer>
-        <p>For more help, join our community: <a href="https://t.me/RektDevelopers">Telegram</a>.</p>
-        <p>Visit the <a href="https://github.com/Rekt-Developer/localhost-termux-root-webpanel">GitHub Repository</a> for more information.</p>
-    </footer>
 </body>
 </html>
