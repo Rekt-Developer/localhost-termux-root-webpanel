@@ -1,230 +1,111 @@
 <!DOCTYPE html>
-<html lang="en" prefix="og: https://ogp.me/ns#">
+<html lang="en" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Primary Meta Tags -->
-    <title>aaPanel Termux Installation Guide | Ultimate Server Management</title>
-    <meta name="description" content="Master the complete aaPanel installation on Termux with our comprehensive, step-by-step guide. Transform your Android device into a powerful web hosting platform.">
-    <meta name="keywords" content="aaPanel, Termux, Ubuntu, web hosting, Linux, server management, Android development, web panel, control panel installation">
-    
-    <!-- Open Graph / Facebook Meta Tags -->
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Ultimate aaPanel Termux Installation Guide">
-    <meta property="og:description" content="Comprehensive tutorial to install aaPanel on Termux: Turn your Android device into a professional web hosting environment.">
-    <meta property="og:url" content="https://rektdevelopers.github.io/termux-aapanel-guide">
-    <meta property="og:image" content="https://rektdevelopers.github.io/images/termux-aapanel-banner.jpg">
-    <meta property="article:author" content="Rekt Developers">
-    <meta property="article:section" content="Web Hosting Tutorials">
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Master aaPanel on Termux">
-    <meta name="twitter:description" content="Transform your Android into a powerful web hosting platform with our ultimate aaPanel Termux guide.">
-    <meta name="twitter:image" content="https://rektdevelopers.github.io/images/termux-aapanel-twitter-card.jpg">
-    <meta name="twitter:creator" content="@RektDevelopers">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://rektdevelopers.github.io/termux-aapanel-guide">
-    
-    <!-- Favicon & Icons -->
-    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <title>aaPanel Termux Wizard | Server Management</title>
     
     <!-- Preload Critical Resources -->
-    <link rel="preload" href="/css/styles.css" as="style">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
     
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "HowTo",
-        "name": "aaPanel Installation on Termux",
-        "description": "Comprehensive guide to installing aaPanel on Termux for web hosting",
-        "totalTime": "PT30M",
-        "estimatedCost": {
-            "@type": "MonetaryCost",
-            "currency": "USD",
-            "value": "0"
-        },
-        "step": [
-            {
-                "@type": "HowToStep",
-                "name": "Install Termux and PRoot",
-                "text": "Update Termux packages and install PRoot environment"
-            },
-            {
-                "@type": "HowToStep",
-                "name": "Download Ubuntu Root Filesystem",
-                "text": "Download the appropriate Ubuntu core filesystem for your device"
-            },
-            {
-                "@type": "HowToStep",
-                "name": "Setup Ubuntu Environment",
-                "text": "Extract and configure the Ubuntu root filesystem"
-            },
-            {
-                "@type": "HowToStep",
-                "name": "Install aaPanel",
-                "text": "Run the official aaPanel installation script"
-            }
-        ]
-    }
-    </script>
+    <!-- Meta Tags -->
+    <meta name="description" content="Ultimate guide to install aaPanel on Termux - Transform your Android into a powerful web server">
+    <meta name="keywords" content="aaPanel, Termux, Ubuntu, web hosting, server management">
     
-    <!-- Performance Optimization Hints -->
-    <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header role="banner" class="site-header">
-        <div class="container">
-            <h1>🚀 aaPanel Termux Installation Guide</h1>
-            <p class="lead">Transform Your Android into a Professional Web Hosting Environment</p>
-            
-            <nav role="navigation" aria-label="Table of Contents">
-                <ul class="nav-list">
-                    <li><a href="#prerequisites" class="nav-link">Prerequisites</a></li>
-                    <li><a href="#installation" class="nav-link">Installation Steps</a></li>
-                    <li><a href="#configurations" class="nav-link">Advanced Setup</a></li>
-                    <li><a href="#troubleshooting" class="nav-link">Troubleshooting</a></li>
+    <div class="app-container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-server"></i>
+                <h1>aaPanel Termux Wizard</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#guide">Installation Guide</a></li>
+                    <li><a href="#tools">Tools</a></li>
+                    <li><a href="#support">Support</a></li>
                 </ul>
             </nav>
-        </div>
-    </header>
+        </header>
 
-    <main role="main">
-        <section id="prerequisites" class="section">
-            <div class="container">
-                <h2>🔍 Prerequisites</h2>
-                <div class="content-grid">
-                    <div class="content-item">
-                        <h3>Required Tools</h3>
-                        <ul>
-                            <li>Termux App (Latest Version)</li>
-                            <li>Stable Internet Connection</li>
-                            <li>Android Device with ARM64 Architecture</li>
-                        </ul>
-                    </div>
-                    <div class="content-item">
-                        <h3>Ubuntu Versions</h3>
-                        <ul>
-                            <li>Ubuntu Focal (20.04 LTS) ✅ Recommended</li>
-                            <li>Ubuntu Jammy (22.04 LTS)</li>
-                            <li>Ubuntu Bionic (18.04 LTS)</li>
-                        </ul>
+        <main>
+            <section id="home" class="hero">
+                <div class="hero-content">
+                    <h2>Transform Your Android into a Web Server</h2>
+                    <p>Easily install aaPanel on Termux with our step-by-step wizard</p>
+                    <div class="cta-buttons">
+                        <button id="start-guide" class="btn primary">
+                            <i class="fas fa-play-circle"></i> Start Guide
+                        </button>
+                        <button id="download-tools" class="btn secondary">
+                            <i class="fas fa-download"></i> Download Tools
+                        </button>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="installation" class="section">
-            <div class="container">
-                <h2>💻 Installation Process</h2>
-                <div class="code-blocks">
-                    <div class="code-block">
-                        <h3>Step 1: Update Termux</h3>
+            <section id="guide" class="installation-guide hidden">
+                <h3>📦 Installation Steps</h3>
+                <div class="steps-container">
+                    <div class="step" data-step="1">
+                        <div class="step-icon">1</div>
+                        <h4>Update Termux</h4>
                         <pre><code>pkg update && pkg upgrade -y</code></pre>
                     </div>
-                    
-                    <div class="code-block">
-                        <h3>Step 2: Install Dependencies</h3>
+                    <div class="step" data-step="2">
+                        <div class="step-icon">2</div>
+                        <h4>Install Dependencies</h4>
                         <pre><code>pkg install proot wget tar -y</code></pre>
                     </div>
-                    
-                    <div class="code-block">
-                        <h3>Step 3: Download Ubuntu</h3>
-                        <pre><code>wget https://partner-images.canonical.com/core/focal/current/ubuntu-focal-core-cloudimg-arm64-root.tar.xz</code></pre>
-                    </div>
-                    
-                    <div class="code-block">
-                        <h3>Step 4: Extract Filesystem</h3>
-                        <pre><code>mkdir -p ~/ubuntu-fs
-tar -xf ubuntu-focal-core-cloudimg-arm64-root.tar.xz -C ~/ubuntu-fs</code></pre>
-                    </div>
-                    
-                    <div class="code-block">
-                        <h3>Step 5: Launch Ubuntu</h3>
-                        <pre><code>proot -0 -w ~ -b /proc -b /sys -b /dev ~/ubuntu-fs/bin/bash</code></pre>
-                    </div>
-                    
-                    <div class="code-block">
-                        <h3>Step 6: Install aaPanel</h3>
-                        <pre><code>bash <(curl -s http://www.aapanel.com/script/install-ubuntu.sh)</code></pre>
-                    </div>
+                    <!-- More steps... -->
                 </div>
-            </div>
-        </section>
-
-        <section id="configurations" class="section">
-            <div class="container">
-                <h2>⚙️ Post-Installation Configurations</h2>
-                <div class="configuration-grid">
-                    <div class="config-item">
-                        <h3>Web Server</h3>
-                        <p>Configure Nginx or Apache with optimal performance settings</p>
-                    </div>
-                    <div class="config-item">
-                        <h3>Database Management</h3>
-                        <p>Set up MySQL or PostgreSQL with secure credentials</p>
-                    </div>
-                    <div class="config-item">
-                        <h3>SSL Configuration</h3>
-                        <p>Implement free SSL certificates using Let's Encrypt</p>
-                    </div>
-                    <div class="config-item">
-                        <h3>Security Hardening</h3>
-                        <p>Enable firewall and implement intrusion prevention</p>
-                    </div>
+                <div class="navigation-controls">
+                    <button id="prev-step" class="btn">Previous</button>
+                    <button id="next-step" class="btn primary">Next</button>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="troubleshooting" class="section">
-            <div class="container">
-                <h2>🛠️ Troubleshooting</h2>
-                <div class="troubleshooting-list">
-                    <details>
-                        <summary>Common Installation Issues</summary>
-                        <ul>
-                            <li>Verify Termux is updated</li>
-                            <li>Check internet connectivity</li>
-                            <li>Ensure sufficient storage space</li>
-                            <li>Verify ARM64 compatibility</li>
-                        </ul>
-                    </details>
-                    <details>
-                        <summary>Performance Optimization</summary>
-                        <ul>
-                            <li>Allocate adequate RAM</li>
-                            <li>Use lightweight web servers</li>
-                            <li>Implement caching mechanisms</li>
-                        </ul>
-                    </details>
+            <section id="tools" class="tools-section hidden">
+                <h3>🛠️ Required Tools</h3>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h4>Termux</h4>
+                        <p>Android Terminal Emulator</p>
+                    </div>
+                    <!-- More tool cards... -->
                 </div>
-            </div>
-        </section>
-    </main>
+            </section>
 
-    <footer role="contentinfo" class="site-footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>🤝 Community Support: <a href="https://t.me/RektDevelopers">Telegram Group</a></p>
-                <p>📦 Project Repository: <a href="https://github.com/Rekt-Developer/localhost-termux-root-webpanel">GitHub</a></p>
-                <p>©2024 Rekt Developers. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
+            <section id="support" class="support-section hidden">
+                <h3>💬 Community Support</h3>
+                <div class="support-options">
+                    <a href="https://t.me/RektDevelopers" class="support-link">
+                        <i class="fab fa-telegram"></i> Telegram Group
+                    </a>
+                    <a href="https://github.com/Rekt-Developer" class="support-link">
+                        <i class="fab fa-github"></i> GitHub Repository
+                    </a>
+                </div>
+            </section>
+        </main>
 
-    <!-- Performance & Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
-    </script>
+        <footer>
+            <p>© 2024 Rekt Developers | aaPanel Termux Guide</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
