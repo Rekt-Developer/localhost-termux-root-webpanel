@@ -3,12 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Install aaPanel on Termux - Guide</title>
+    <meta name="description" content="Install aaPanel on Termux easily using the step-by-step guide. Learn how to set up a web hosting panel on your Android device and optimize your server environment.">
+    <meta name="keywords" content="aaPanel, Termux, Ubuntu, setup, server, web hosting, Linux, aapanel, install guide, control panel">
+    <meta name="author" content="Rekt Developers">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Install aaPanel on Termux | Step-by-Step Guide">
+    <meta property="og:description" content="Step-by-step guide to install aaPanel on your Termux environment. Host and manage websites with ease on your Android device.">
+    <meta property="og:image" content="https://example.com/path/to/thumbnail.jpg">
+    <meta property="og:url" content="https://github.com/Rekt-Developer/localhost-termux-root-webpanel">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Install aaPanel on Termux | Step-by-Step Guide">
+    <meta name="twitter:description" content="Learn how to install aaPanel on your Android device via Termux. Full guide with troubleshooting steps.">
+    <meta name="twitter:image" content="https://example.com/path/to/thumbnail.jpg">
+    <meta name="twitter:site" content="@RektDevelopers">
+    <title>Install aaPanel on Termux - Step-by-Step Guide</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://example.com/favicon.ico" type="image/x-icon">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXX-X"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-XXXXXX-X');
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "url": "https://github.com/Rekt-Developer/localhost-termux-root-webpanel",
+            "name": "Install aaPanel on Termux",
+            "description": "Step-by-step guide for installing aaPanel on Termux to manage websites and server environments.",
+            "publisher": {
+                "@type": "Organization",
+                "name": "Rekt Developers",
+                "url": "https://t.me/RektDevelopers"
+            }
+        }
+    </script>
 </head>
 <body>
     <header>
         <h1>Install aaPanel on Termux</h1>
+        <p>Follow this detailed guide to easily install and set up aaPanel on your Termux environment for web hosting and management.</p>
         <nav>
             <ul>
                 <li><a href="#prerequisites">Prerequisites</a></li>
@@ -21,15 +58,14 @@
 
     <section id="prerequisites">
         <h2>Prerequisites</h2>
-        <p>Before installing aaPanel, make sure you have the following installed:</p>
+        <p>Make sure you have the following installed before starting the installation:</p>
         <ul>
-            <li><a href="https://github.com/termux/termux-packages">Termux</a> (for Android)</li>
+            <li><a href="https://github.com/termux/termux-packages">Termux</a> on your Android device</li>
             <li>Ubuntu Root Filesystem (choose your desired version below):</li>
             <ul>
                 <li><a href="https://partner-images.canonical.com/core/focal/">Ubuntu Focal</a></li>
                 <li><a href="https://partner-images.canonical.com/core/jammy/">Ubuntu Jammy</a></li>
                 <li><a href="https://partner-images.canonical.com/core/bionic/">Ubuntu Bionic</a></li>
-                <li><a href="https://partner-images.canonical.com/core/xenial/">Ubuntu Xenial</a></li>
             </ul>
         </ul>
     </section>
@@ -43,7 +79,6 @@ pkg install proot
         </code></pre>
 
         <h3>Step 2: Download Ubuntu Root Filesystem</h3>
-        <p>Choose your desired version and download the root filesystem:</p>
         <pre><code>
 wget https://partner-images.canonical.com/core/focal/current/ubuntu-focal-core-cloudimg-arm64-root.tar.xz
         </code></pre>
@@ -67,7 +102,7 @@ bash <(curl -s http://www.aapanel.com/script/install-ubuntu.sh)
 
     <section id="configurations">
         <h2>Advanced Configurations</h2>
-        <p>After installation, you can configure the following services:</p>
+        <p>After installation, configure the following services:</p>
         <ul>
             <li>Web Server (Nginx/Apache)</li>
             <li>Database Server (MySQL/PostgreSQL)</li>
@@ -77,15 +112,16 @@ bash <(curl -s http://www.aapanel.com/script/install-ubuntu.sh)
 
     <section id="troubleshooting">
         <h2>Troubleshooting</h2>
-        <p>If you encounter issues, try the following solutions:</p>
+        <p>If you face any issues, try these solutions:</p>
         <ul>
-            <li>Ensure your Termux installation is up-to-date: <code>pkg update && pkg upgrade</code></li>
-            <li>If `proot` is not working, try reinstalling it: <code>pkg install proot</code></li>
+            <li>Ensure Termux is up-to-date: <code>pkg update && pkg upgrade</code></li>
+            <li>Reinstall PRoot if necessary: <code>pkg install proot</code></li>
         </ul>
     </section>
 
     <footer>
-        <p>For more help, visit the <a href="https://github.com/Rekt-Developer/localhost-termux-root-webpanel">GitHub Repository</a>.</p>
+        <p>For more help, join our community: <a href="https://t.me/RektDevelopers">Telegram</a>.</p>
+        <p>Visit the <a href="https://github.com/Rekt-Developer/localhost-termux-root-webpanel">GitHub Repository</a> for more information.</p>
     </footer>
 </body>
 </html>
